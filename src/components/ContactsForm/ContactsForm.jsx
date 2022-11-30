@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
@@ -27,7 +28,9 @@ export const Form = () => {
       });
     }
 
-    dispatch(addContact(nameValue, numberValue));
+    const newContact = { id: nanoid(), name: nameValue, number: numberValue };
+
+    dispatch(addContact(newContact));
 
     form.reset();
   };
