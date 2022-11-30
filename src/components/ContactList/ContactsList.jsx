@@ -18,12 +18,6 @@ export const ContactsList = () => {
     name.toLowerCase().includes(normalizedFilter)
   );
 
-  let id = 0;
-
-  const handleDelete = () => {
-    dispatch(deleteContact(id));
-  };
-
   return (
     <Box as="ul" width="430px">
       {filteredContacts.map(({ id, name, number }) => (
@@ -31,7 +25,9 @@ export const ContactsList = () => {
           <BsPhone />
           <p>{name}</p>
           <p>{number}</p>
-          <DelButton onClick={handleDelete}>Delete</DelButton>
+          <DelButton onClick={() => dispatch(deleteContact({ id }))}>
+            Delete
+          </DelButton>
         </Contact>
       ))}
     </Box>

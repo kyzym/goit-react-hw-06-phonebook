@@ -1,11 +1,8 @@
-// import { PropTypes } from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
 
 import { Button, FormTag, Input, Label } from './ContactForm.styled';
-
-// import { useState } from 'react';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -29,22 +26,6 @@ export const Form = () => {
     dispatch(addContact(nameValue, numberValue));
     form.reset();
   };
-  // const [name, setName] = useState('');
-  // const [number, setNumber] = useState('');
-
-  // const handleChange = e => {
-  //   if (e.target.name === 'name') setName(e.target.value);
-
-  //   if (e.target.name === 'number') setNumber(e.target.value);
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-
-  //   onSubmit({ name, number });
-
-  //   e.currentTarget.reset();
-  // };
 
   return (
     <FormTag onSubmit={handleSubmit}>
@@ -54,7 +35,7 @@ export const Form = () => {
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          title="Only letters, apostrophe, dash and spaces."
           required
           placeholder="Enter name"
         />
@@ -75,10 +56,3 @@ export const Form = () => {
     </FormTag>
   );
 };
-
-// Form.propTypes = {
-//   name: PropTypes.string,
-//   value: PropTypes.string,
-//   handleSubmit: PropTypes.func,
-//   handleChange: PropTypes.func,
-// };

@@ -4,11 +4,14 @@ import initialContacts from '../components/data/contacts.json';
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: initialContacts,
+  initialState: {
+    contacts: initialContacts,
+  },
+
   reducers: {
     addContact: {
       reducer(state, action) {
-        state.push(action.payload);
+        state.contacts.push(action.payload);
       },
       prepare(name, number) {
         return {
@@ -20,9 +23,11 @@ export const contactsSlice = createSlice({
         };
       },
     },
+
     deleteContact(state, action) {
-      const index = state.findIndex(name => name.id === action.payload);
-      state.splice(index, 1);
+      state.contacts = state.contacts.filter(
+        contact => contact.id !== action.payload.id
+      );
     },
   },
 });
