@@ -5,6 +5,7 @@ import { FilterInput, FilterLabel } from './Filter.styled';
 
 export const Filter = () => {
   const filter = useSelector(getFilter);
+
   const dispatch = useDispatch();
 
   const handleChange = e => {

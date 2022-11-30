@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
@@ -20,10 +21,14 @@ export const Form = () => {
         contact => contact.name.toLowerCase() === nameValue.toLowerCase()
       )
     ) {
-      return alert("Can't add already existing contact");
+      form.reset();
+      return toast("Can't add already existing contact", {
+        icon: '😭',
+      });
     }
 
     dispatch(addContact(nameValue, numberValue));
+
     form.reset();
   };
 

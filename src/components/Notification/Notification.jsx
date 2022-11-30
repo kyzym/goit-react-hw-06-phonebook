@@ -1,12 +1,11 @@
-export const ContactsNotification = ({
-  filtered: filteredContacts,
-  contacts,
-}) => (
-  <div>
-    {filteredContacts !== contacts ? (
-      <span>Found contacts: {filteredContacts}</span>
-    ) : (
-      <span>Total number of contacts: {contacts}</span>
-    )}
-  </div>
-);
+import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
+
+export const ContactsNotification = () => {
+  const savedContacts = useSelector(getContacts);
+  return (
+    <div>
+      <span>Total number of contacts: {savedContacts.length}</span>
+    </div>
+  );
+};

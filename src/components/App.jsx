@@ -1,7 +1,5 @@
-// import { nanoid } from 'nanoid';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import { useEffect, useState } from 'react';
 import { FcContacts, FcList } from 'react-icons/fc';
+import { Toaster } from 'react-hot-toast';
 import {
   ContactsList,
   ContactsNotification,
@@ -10,44 +8,9 @@ import {
   SubTitle,
   Title,
 } from '.';
-// import initialContacts from './data/contacts.json';
 import { Box } from './utils/Box.styled';
 
-// const LS_KEY = 'savedContacts';
-
 export const App = () => {
-  // const savedContacts = JSON.parse(localStorage.getItem(LS_KEY));
-
-  // const [contacts, setContacts] = useState(savedContacts ?? initialContacts);
-  // const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   localStorage.setItem(LS_KEY, JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // const addContact = ({ name, number }) => {
-  //   if (contacts.some(contact => contact.name === name)) {
-  //     return Notify.warning("Can't add already existing contact");
-  //   }
-
-  //   const newContact = {
-  //     id: nanoid(),
-  //     name,
-  //     number,
-  //   };
-  //   setContacts([newContact, ...contacts]);
-  // };
-
-  // const normalizedFilter = filter.toLowerCase().trim();
-
-  // const filteredContacts = contacts.filter(({ name }) =>
-  //   name.toLowerCase().includes(normalizedFilter)
-  // );
-  // const changeFilter = e => setFilter(e.target.value);
-
-  // const deleteContact = contactId =>
-  //   setContacts(contacts => contacts.filter(({ id }) => id !== contactId));
-
   return (
     <Box
       display="flex"
@@ -69,6 +32,7 @@ export const App = () => {
       <Filter />
       <ContactsList />
       <ContactsNotification />
+      <Toaster position="top-center" reverseOrder={false} />
     </Box>
   );
 };

@@ -4,6 +4,7 @@ import { Contact, DelButton } from './ContactsList.styled';
 import { BsPhone } from 'react-icons/bs';
 import { getContacts, getFilter } from 'redux/selectors';
 import { deleteContact } from 'redux/contactsSlice';
+import { MdClose } from 'react-icons/md';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
@@ -22,11 +23,11 @@ export const ContactsList = () => {
     <Box as="ul" width="430px">
       {filteredContacts.map(({ id, name, number }) => (
         <Contact key={id}>
-          <BsPhone />
-          <p>{name}</p>
-          <p>{number}</p>
+          <BsPhone size={20} />
+          <h4>{name}</h4>
+          <h4>{number}</h4>
           <DelButton onClick={() => dispatch(deleteContact({ id }))}>
-            Delete
+            <MdClose size={24} />
           </DelButton>
         </Contact>
       ))}

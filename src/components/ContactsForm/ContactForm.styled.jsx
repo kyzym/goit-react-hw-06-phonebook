@@ -42,6 +42,7 @@ export const Button = styled.button`
   padding: 8px;
   border-radius: 20px;
   border: none;
+  cursor: pointer;
 
   &:hover,
   focus {

@@ -8,18 +8,23 @@ export const Contact = styled.li`
 `;
 
 export const DelButton = styled.button`
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: capitalize;
-  padding: 8px;
-  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
   border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #f44336;
 
-  &:hover,
-  focus {
-    outline: 1.5px solid black;
+  &:hover {
+    background-color: #e2e5e8;
   }
   &:active {
-    background-color: #cdcdcd;
+    background-color: #bdbdbd;
   }
 `;
